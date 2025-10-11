@@ -1,12 +1,13 @@
 using System;
 using System.Linq;
 using Xunit;
+using Assignment4;
 
 namespace Assignment4.Tests
 {
     public class DataServiceTests
     {
-        /* Categories 
+        /* Categories  */
 
         [Fact]
         public void Category_Object_HasIdNameAndDescription()
@@ -16,7 +17,7 @@ namespace Assignment4.Tests
             Assert.Null(category.Name);
             Assert.Null(category.Description);
         }
-
+        
         [Fact]
         public void GetAllCategories_NoArgument_ReturnsAllCategories()
         {
@@ -24,7 +25,7 @@ namespace Assignment4.Tests
             var categories = service.GetCategories();
             Assert.Equal(8, categories.Count);
             Assert.Equal("Beverages", categories.First().Name);
-        }
+        }/*
 
         [Fact]
         public void GetCategory_ValidId_ReturnsCategoryObject()
