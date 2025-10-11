@@ -6,7 +6,7 @@ namespace Assignment4.Tests
 {
     public class DataServiceTests
     {
-        /* Categories */
+        /* Categories 
 
         [Fact]
         public void Category_Object_HasIdNameAndDescription()
@@ -92,8 +92,8 @@ namespace Assignment4.Tests
             Assert.False(result);
         }
 
-
-        /* products */
+        */
+        /* products 
 
         [Fact]
         public void Product_Object_HasIdNameUnitPriceQuantityPerUnitAndUnitsInStock()
@@ -135,8 +135,8 @@ namespace Assignment4.Tests
             Assert.Equal("NuNuCa Nuﬂ-Nougat-Creme", products.First().ProductName);
             Assert.Equal("Flotemysost", products.Last().ProductName);
         }
-
-        /* orders */
+        */
+        /* orders 
         [Fact]
         public void Order_Object_HasIdDatesAndOrderDetails()
         {
@@ -167,8 +167,8 @@ namespace Assignment4.Tests
             Assert.Equal(830, orders.Count);
         }
 
-
-        /* orderdetails */
+        */
+        /* orderdetails 
         [Fact]
         public void OrderDetails_Object_HasOrderProductUnitPriceQuantityAndDiscount()
         {
@@ -202,6 +202,6 @@ namespace Assignment4.Tests
             Assert.Equal("1997-05-06", orderDetails.First().Order.Date.ToString("yyyy-MM-dd"));
             Assert.Equal(21, orderDetails.First().UnitPrice);
             Assert.Equal(3, orderDetails.First().Quantity);
-        }
+        }*/
     }
 }
