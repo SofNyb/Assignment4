@@ -11,19 +11,19 @@ namespace Assignment4
 {
     public class DataService
     {
-        public void PrintCategoryNames()
+        public static List<string> GetCategories()
         {
             using var db = new NorthwindContext();
-            foreach (var category in db.Categories)
-            {
-                Console.WriteLine(category.Name);
-            }
+            return [.. db.Categories.Select(c => c.Name)];
         }
 
         public void Run()
         {
-            PrintCategoryNames();
-            // You can add more code to run other methods if needed
+            var categories = GetCategories();
+            foreach (var name in categories)
+            {
+                Console.WriteLine(name);
+            }
         }
     }
 }
