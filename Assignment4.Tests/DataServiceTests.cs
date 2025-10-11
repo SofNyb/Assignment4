@@ -22,10 +22,10 @@ namespace Assignment4.Tests
         public void GetAllCategories_NoArgument_ReturnsAllCategories()
         {
             var service = new DataService();
-            var categories = DataService.GetCategories();
+            var categories = service.GetCategories();
             Assert.Equal(8, categories.Count);
             Assert.Equal("Beverages", categories.First().Name);
-        }/*
+        }
 
         [Fact]
         public void GetCategory_ValidId_ReturnsCategoryObject()
@@ -34,7 +34,7 @@ namespace Assignment4.Tests
             var category = service.GetCategory(1);
             Assert.Equal("Beverages", category.Name);
         }
-
+/*
         [Fact]
         public void CreateCategory_ValidData_CreteCategoryAndRetunsNewObject()
         {
