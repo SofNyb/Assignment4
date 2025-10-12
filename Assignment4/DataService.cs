@@ -50,6 +50,20 @@ namespace Assignment4
             return true;
         }
 
+        public bool UpdateCategory(int id, string name, string description)
+        {
+            using var db = new NorthwindContext();
+            var category = db.Categories.FirstOrDefault(c => c.Id == id);
+            if (category == null)
+            {
+                return false;
+            }
+            category.Name = name;
+            category.Description = description;
+            db.SaveChanges();
+            return true;
+        }
+
         public void Run()
         {
             var categories = GetCategories();
