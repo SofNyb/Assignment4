@@ -23,6 +23,33 @@ namespace Assignment4
             return db.Categories.FirstOrDefault(c => c.Id == id);
         }
 
+        public Category CreateCategory(string name, string description)
+        {
+            using var db = new NorthwindContext();
+
+            // id
+            var maxId = db.Categories.Any() ? db.Categories.Max(c => c.Id) : 0;
+
+
+            var category = new Category { Id = maxId + 1, Name = name, Description = description };
+            db.Categories.Add(category);
+            db.SaveChanges();
+            return category;
+        }
+
+        public bool DeleteCategory(int id)
+        {
+            using var db = new NorthwindContext();
+            var category = db.Categories.FirstOrDefault(c => c.Id == id);
+            if (category == null)
+            {
+                return false;
+            }
+            db.Categories.Remove(category);
+            db.SaveChanges();
+            return true;
+        }
+
         public void Run()
         {
             var categories = GetCategories();
@@ -32,11 +59,15 @@ namespace Assignment4
             }
             Console.WriteLine(categories.Count);
 
-            var category = GetCategory(2);
+            var category = GetCategory(1);
             if (category != null)
             {
                 Console.WriteLine(category.Name);
+                return;
             }
+
+            category = CreateCategory("Test", "This is a test category");
+
         }
     }
 }
