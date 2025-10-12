@@ -84,7 +84,7 @@ namespace Assignment4.Tests
             // cleanup
             service.DeleteCategory(category.Id);
         }
-/*
+
         [Fact]
         public void UpdateCategory_InvalidID_ReturnsFalse()
         {
@@ -93,7 +93,7 @@ namespace Assignment4.Tests
             Assert.False(result);
         }
 
-        */
+        
         /* products 
 
         [Fact]
