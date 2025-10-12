@@ -58,7 +58,7 @@ namespace Assignment4.Tests
             category = service.GetCategory(category.Id);
             Assert.Null(category);
         }
-/*
+
         [Fact]
         public void DeleteCategory_InvalidId_ReturnsFalse()
         {
@@ -66,7 +66,7 @@ namespace Assignment4.Tests
             var result = service.DeleteCategory(-1);
             Assert.False(result);
         }
-
+/*
         [Fact]
         public void UpdateCategory_NewNameAndDescription_UpdateWithNewValues()
         {
