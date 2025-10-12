@@ -7,7 +7,6 @@ namespace Assignment4
         public static void Main(string[] args)
         {
             var service = new DataService();
-            service.Run();
         }
     }
 }
