@@ -37,5 +37,12 @@ namespace Assignment4
         {
             return _categoryOperations.UpdateCategory(id, name, description);
         }
+
+
+        public Product GetProduct(int id)
+        {
+            using var db = new NorthwindContext();
+            return db.Products.Include(p => p.Category).FirstOrDefault(p => p.Id == id);
+        }
     }
 }

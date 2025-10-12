@@ -94,7 +94,7 @@ namespace Assignment4.Tests
         }
 
         
-        /* products 
+        /* products */
 
         [Fact]
         public void Product_Object_HasIdNameUnitPriceQuantityPerUnitAndUnitsInStock()
@@ -115,7 +115,7 @@ namespace Assignment4.Tests
             Assert.Equal("Chai", product.Name);
             Assert.Equal("Beverages", product.Category.Name);
         }
-
+/*
         [Fact]
         public void GetProductsByCategory_ValidId_ReturnsProductWithCategory()
         {
