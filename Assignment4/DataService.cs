@@ -17,10 +17,10 @@ namespace Assignment4
             return db.Categories.ToList();
         }
 
-        public List<Category> GetCategory()
+        public Category GetCategory(int id)
         {
             using var db = new NorthwindContext();
-            return db.Category.ToList();
+            return db.Categories.FirstOrDefault(c => c.Id == id);
         }
 
         public void Run()
@@ -32,12 +32,11 @@ namespace Assignment4
             }
             Console.WriteLine(categories.Count);
 
-            var category = GetCategory();
-            foreach (var cat in category)
+            var category = GetCategory(2);
+            if (category != null)
             {
-                Console.WriteLine(cat.Name);
+                Console.WriteLine(category.Name);
             }
-            Console.WriteLine(cat.Count);
         }
     }
 }
