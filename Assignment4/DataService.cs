@@ -17,14 +17,27 @@ namespace Assignment4
             return db.Categories.ToList();
         }
 
+        public List<Category> GetCategory()
+        {
+            using var db = new NorthwindContext();
+            return db.Category.ToList();
+        }
+
         public void Run()
         {
             var categories = GetCategories();
-            foreach (var category in categories)
+            foreach (var c in categories)
             {
-                Console.WriteLine(category.Name);
+                Console.WriteLine(c.Name);
             }
             Console.WriteLine(categories.Count);
+
+            var category = GetCategory();
+            foreach (var cat in category)
+            {
+                Console.WriteLine(cat.Name);
+            }
+            Console.WriteLine(cat.Count);
         }
     }
 }
