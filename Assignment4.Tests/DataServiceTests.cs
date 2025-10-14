@@ -126,7 +126,7 @@ namespace Assignment4.Tests
             Assert.Equal("Beverages", products.First().CategoryName);
             //Assert.Equal("Lakkalikööri", products.Last().Name);
         }
-/*
+        /*
         [Fact]
         public void GetProduct_NameSubString_ReturnsProductsThatMachesTheSubString()
         {

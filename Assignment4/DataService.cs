@@ -68,5 +68,26 @@ namespace Assignment4
                 .ToList();
         }
 
+        public class ProductWithName
+        {
+            public string ProductName { get; set; }  
+        }
+
+        public List<ProductWithName> GetProductByName(string name)
+        {
+            using var db = new NorthwindContext();
+            var products = db.Products
+                .Where(p => EF.Functions.ILike(p.Name, $"%{name}%"))
+                .AsNoTracking()
+                .ToList();
+
+            return products
+                .Select(p => new ProductWithName
+                {
+                    ProductName = p.Name
+                })
+                .ToList();
+        }
+
     }
 }
