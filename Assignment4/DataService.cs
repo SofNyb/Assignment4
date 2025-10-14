@@ -60,5 +60,48 @@ namespace Assignment4
             return _productOperations.GetProductByName(name);
         }
 
+
+        /* Orders */
+        // private readonly OrderOperations _orderOperations = new OrderOperations();
+
+        public List<Order> GetOrders()
+        {
+            using var db = new NorthwindContext();
+            var orders = db.Orders
+                .Include(o => o.OrderDetails)
+                .AsNoTracking()
+                .ToList();
+
+            return orders;
+        }
+
+        /*public void Order_Object_HasIdDatesAndOrderDetails()
+         * 
+         * using var db = new NorthwindContext();
+            var products = db.Products
+                .Where(p => EF.Functions.ILike(p.Name, $"%{name}%"))
+                .AsNoTracking()
+                .ToList();
+
+            return products
+                .Select(p => new ProductWithName
+                {
+                    ProductName = p.Name
+                })
+                .ToList();
+        }
+         * 
+        {
+            var order = new Order();
+            Assert.Equal(0, order.Id);
+            Assert.Equal(new DateTime(), order.Date);
+            Assert.Equal(new DateTime(), order.Required);
+            Assert.Null(order.OrderDetails);
+            Assert.Null(order.ShipName);
+            Assert.Null(order.ShipCity);
+        }*/
+
+
+        /* OrderDetails */
     }
 }
