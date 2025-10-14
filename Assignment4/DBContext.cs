@@ -15,7 +15,7 @@ public class NorthwindContext : DbContext
     {
         optionsBuilder.LogTo(Console.WriteLine, Microsoft.Extensions.Logging.LogLevel.Information);
         optionsBuilder.EnableSensitiveDataLogging();
-        optionsBuilder.UseNpgsql("host=localhost;db=northwind;uid=postgres;pwd=Lauritz!");
+        optionsBuilder.UseNpgsql("host=localhost;db=northwind;uid=postgres;pwd=Lauritz!;");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -49,6 +49,10 @@ public class NorthwindContext : DbContext
         modelBuilder.Entity<OrderDetails>().Property(x => x.UnitPrice).HasColumnName("unitprice");
         modelBuilder.Entity<OrderDetails>().Property(x => x.Quantity).HasColumnName("quantity");
         modelBuilder.Entity<OrderDetails>().Property(x => x.Discount).HasColumnName("discount");
-
+        
+        modelBuilder.Entity<Order>()
+            .HasMany(o => o.OrderDetails)
+            .WithOne()
+            .HasForeignKey(od => od.OrderId);
     }
 }
