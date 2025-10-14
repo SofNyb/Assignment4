@@ -43,6 +43,7 @@ public class NorthwindContext : DbContext
         modelBuilder.Entity<Order>().Property(x => x.ShipCity).HasColumnName("shipcity");
 
         modelBuilder.Entity<OrderDetails>().ToTable("orderdetails");
+        modelBuilder.Entity<OrderDetails>().HasKey(od => new { od.OrderId, od.ProductId });
         modelBuilder.Entity<OrderDetails>().Property(x => x.OrderId).HasColumnName("orderid");
         modelBuilder.Entity<OrderDetails>().Property(x => x.ProductId).HasColumnName("productid");
         modelBuilder.Entity<OrderDetails>().Property(x => x.UnitPrice).HasColumnName("unitprice");
