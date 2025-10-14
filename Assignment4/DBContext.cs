@@ -52,7 +52,7 @@ public class NorthwindContext : DbContext
         
         modelBuilder.Entity<Order>()
             .HasMany(o => o.OrderDetails)
-            .WithOne()
+            .WithOne(od => od.Order)
             .HasForeignKey(od => od.OrderId);
     }
 }
