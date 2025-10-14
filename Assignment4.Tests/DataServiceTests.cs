@@ -149,7 +149,7 @@ namespace Assignment4.Tests
             Assert.Null(order.ShipName);
             Assert.Null(order.ShipCity);
         }
-/* 
+ 
         [Fact]
         public void GetOrder_ValidId_ReturnsCompleteOrder()
         {
@@ -165,11 +165,12 @@ namespace Assignment4.Tests
         {
             var service = new DataService();
             var orders = service.GetOrders();
+            Console.WriteLine($"orders.Count: {orders.Count}");
             Assert.Equal(830, orders.Count);
         }
 
-        */
-        /* orderdetails 
+       
+        /* orderdetails */
         [Fact]
         public void OrderDetails_Object_HasOrderProductUnitPriceQuantityAndDiscount()
         {
@@ -203,6 +204,6 @@ namespace Assignment4.Tests
             Assert.Equal("1997-05-06", orderDetails.First().Order.Date.ToString("yyyy-MM-dd"));
             Assert.Equal(21, orderDetails.First().UnitPrice);
             Assert.Equal(3, orderDetails.First().Quantity);
-        }*/
+        }
     }
 }

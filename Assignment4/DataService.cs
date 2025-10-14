@@ -95,5 +95,15 @@ namespace Assignment4
                 .AsNoTracking()
                 .ToList();
         }
+
+        public List<OrderDetails> GetOrderDetailsByProductId(int productId)
+        {
+            using var db = new NorthwindContext();
+            return db.OrderDetails
+                .Where(od => od.ProductId == productId)
+                .Include(od => od.Order)
+                .AsNoTracking()
+                .ToList();
+        }
     }
 }
