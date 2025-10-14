@@ -62,31 +62,17 @@ namespace Assignment4
 
 
         /* Orders */
-        // private readonly OrderOperations _orderOperations = new OrderOperations();
+        private readonly OrderOperations _orderOperations = new OrderOperations();
 
         public List<Order> GetOrders()
         {
-            using var db = new NorthwindContext();
-            var orders = db.Orders
-                .Include(o => o.OrderDetails)
-                .AsNoTracking()
-                .ToList();
-
-            return orders;
+            return _orderOperations.GetOrders();
         }
 
         public Order GetOrder(int id)
         {
-            using var db = new NorthwindContext();
-            var order = db.Orders
-                .Include(o => o.OrderDetails)
-                    .ThenInclude(od => od.Product)
-                        .ThenInclude(p => p.Category)
-                .AsNoTracking()
-                .FirstOrDefault(o => o.Id == id);
-            return order;
+            return _orderOperations.GetOrder(id);
         }
-
 
         /* OrderDetails */
     }
