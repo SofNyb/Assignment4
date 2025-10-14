@@ -38,11 +38,35 @@ namespace Assignment4
             return _categoryOperations.UpdateCategory(id, name, description);
         }
 
-
         public Product GetProduct(int id)
         {
             using var db = new NorthwindContext();
             return db.Products.Include(p => p.Category).FirstOrDefault(p => p.Id == id);
         }
+
+        public class ProductWithCategory
+        {
+            public string Name { get; set; }
+            public string CategoryName { get; set; }
+        }
+
+        public List<ProductWithCategory> GetProductByCategory(int id)
+        {
+            using var db = new NorthwindContext();
+            var products = db.Products
+                .Include(p => p.Category)
+                .Where(p => p.CategoryId == id)
+                .AsNoTracking()
+                .ToList();
+
+            return products
+                .Select(p => new ProductWithCategory
+                {
+                    Name = p.Name,
+                    CategoryName = p.Category?.Name
+                })
+                .ToList();
+        }
+
     }
 }
