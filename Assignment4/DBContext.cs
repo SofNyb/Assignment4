@@ -36,9 +36,9 @@ public class NorthwindContext : DbContext
         modelBuilder.Entity<Order>().ToTable("orders");
         modelBuilder.Entity<Order>().Property(x => x.Id).HasColumnName("orderid");
         modelBuilder.Entity<Order>().Property(x => x.CustomerId).HasColumnName("customerid");
-        modelBuilder.Entity<Order>().Property(x => x.OrderDate).HasColumnName("orderdate");
-        modelBuilder.Entity<Order>().Property(x => x.RequiredDate).HasColumnName("requireddate");
-        modelBuilder.Entity<Order>().Property(x => x.ShippedDate).HasColumnName("shippeddate");
+        modelBuilder.Entity<Order>().Property(x => x.Date).HasColumnName("orderdate");
+        modelBuilder.Entity<Order>().Property(x => x.Required).HasColumnName("requireddate");
+        modelBuilder.Entity<Order>().Property(x => x.Shipped).HasColumnName("shippeddate");
         modelBuilder.Entity<Order>().Property(x => x.ShipName).HasColumnName("shipname");
         modelBuilder.Entity<Order>().Property(x => x.ShipCity).HasColumnName("shipcity");
 
