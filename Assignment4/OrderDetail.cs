@@ -13,5 +13,6 @@ namespace Assignment4
         public int UnitPrice { get; set; }
         public int Quantity { get; set; }
         public int Discount { get; set; }
+        public Product Product { get; set; }
     }
 }
