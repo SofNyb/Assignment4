@@ -77,33 +77,21 @@ namespace Assignment4
 
         /* OrderDetails */
 
+        private readonly OrderDetailOperations _orderDetailOperations = new OrderDetailOperations();
+
         public List<OrderDetails> GetOrderDetails()
         {
-            using var db = new NorthwindContext();
-            return db.OrderDetails
-                .Include(od => od.Product)
-                .AsNoTracking()
-                .ToList();
+            return _orderDetailOperations.GetOrderDetailsByOrderId(0);
         }
 
         public List<OrderDetails> GetOrderDetailsByOrderId(int id)
         {
-            using var db = new NorthwindContext();
-            return db.OrderDetails
-                .Where(od => od.OrderId == id)
-                .Include(od => od.Product)
-                .AsNoTracking()
-                .ToList();
+            return _orderDetailOperations.GetOrderDetailsByOrderId(id);
         }
 
         public List<OrderDetails> GetOrderDetailsByProductId(int productId)
         {
-            using var db = new NorthwindContext();
-            return db.OrderDetails
-                .Where(od => od.ProductId == productId)
-                .Include(od => od.Order)
-                .AsNoTracking()
-                .ToList();
+            return _orderDetailOperations.GetOrderDetailsByProductId(productId);
         }
     }
 }
