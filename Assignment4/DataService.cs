@@ -75,5 +75,14 @@ namespace Assignment4
         }
 
         /* OrderDetails */
+
+        public List<OrderDetails> GetOrderDetails()
+        {
+            using var db = new NorthwindContext();
+            return db.OrderDetails
+                .Include(od => od.Product)
+                .AsNoTracking()
+                .ToList();
+        }
     }
 }
