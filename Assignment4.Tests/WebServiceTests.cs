@@ -100,7 +100,7 @@ namespace Assignment4.Tests
 
             DeleteData($"{CategoriesApi}/{category["id"]}");
         }
-/*
+
         [Fact]
         public void ApiCategories_PutWithInvalidCategory_NotFound()
         {
@@ -140,7 +140,7 @@ namespace Assignment4.Tests
 
             Assert.Equal(HttpStatusCode.NotFound, statusCode);
         }
-*/
+
         /* /api/products */
 /*
         [Fact]
