@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using DataServiceLayer.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataServiceLayer
+namespace DataServiceLayer.Service
 {
     public class CategoryOperations
     {

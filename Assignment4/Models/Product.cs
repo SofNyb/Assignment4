@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataServiceLayer;
+namespace DataServiceLayer.Models;
 public class Product
 {
     public int Id { get; set; }

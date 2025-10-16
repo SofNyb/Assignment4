@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DataServiceLayer.Models;
+using DataServiceLayer.Service;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,8 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using ProductWithCategory = DataServiceLayer.ProductOperations.ProductWithCategory;
-using ProductWithName = DataServiceLayer.ProductOperations.ProductWithName;
+using ProductWithCategory = DataServiceLayer.Service.ProductOperations.ProductWithCategory;
+using ProductWithName = DataServiceLayer.Service.ProductOperations.ProductWithName;
 
 
 namespace DataServiceLayer
