@@ -1,6 +1,7 @@
 ﻿using DataServiceLayer;
 using DataServiceLayer.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection.Emit;
 using WebServiceLayer.Models;
 
 namespace WebServiceLayer.Controllers;
@@ -15,7 +16,12 @@ public class CategoriesController : ControllerBase
     [HttpGet]
     public IActionResult GetCategories()
     {
-        var categories = _dataService.GetCategories();
+        var categories = _dataService.GetCategories().Select(c => new CategoryModel
+        {
+            Url = $"/api/categories/{c.Id}",
+            Name = c.Name,
+            Description = c.Description
+        });
 
         return Ok(categories);
     }
@@ -30,7 +36,14 @@ public class CategoriesController : ControllerBase
             return NotFound();
         }
 
-        return Ok(category);
+        var model = new CategoryModel
+        {
+            Url = $"/api/categories/{category.Id}",
+            Name = category.Name,
+            Description = category.Description
+        };
+
+        return Ok(model);
     }
 
     [HttpPost]
@@ -38,6 +51,24 @@ public class CategoriesController : ControllerBase
     {
         var category = _dataService.CreateCategory(model.Name, model.Description);
 
-        return Created($"/api/categories/{category.Id}", category);
+        var responseModel = new CategoryModel
+        {
+            Url = $"/api/categories/{category.Id}",
+            Name = category.Name,
+            Description = category.Description
+        };
+
+        return Created($"/api/categories/{category.Id}", responseModel);
+    }
+
+    [HttpDelete("{id}")]
+    public IActionResult DeleteCategory(int id)
+    {
+        if (_dataService.DeleteCategory(id))
+        {
+            return Ok();
+        }
+
+        return NotFound();
     }
 }

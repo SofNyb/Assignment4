@@ -1,7 +1,8 @@
 ﻿namespace WebServiceLayer.Models;
 
-public class CreateCategoryModel
+public class CategoryModel
 {
+    public string? Url { get; set; }
     public string? Name { get; set; }
     public string? Description { get; set; }
 }
