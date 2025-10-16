@@ -49,4 +49,17 @@ public class ProductsController : ControllerBase
 
         return Ok(model);
     }
+
+    [HttpGet("category/{id}")]
+    public IActionResult GetProductsByCategory(int id)
+    {
+        var products = _dataService.GetProductByCategory(id);
+
+        if (products == null || !products.Any())
+        {
+            return NotFound();
+        }
+
+        return Ok(products);
+    }
 }
