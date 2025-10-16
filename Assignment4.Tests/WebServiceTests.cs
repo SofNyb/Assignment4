@@ -145,7 +145,7 @@ namespace Assignment4.Tests
             Assert.Equal("Chai", product["name"]);
             Assert.Equal("Beverages", product["category"]["name"]);
         }
-/*
+
         [Fact]
         public void ApiProducts_InvalidId_CompleteProduct()
         {
@@ -153,7 +153,7 @@ namespace Assignment4.Tests
 
             Assert.Equal(HttpStatusCode.NotFound, statusCode);
         }
-
+/*
         [Fact]
         public void ApiProducts_CategoryValidId_ListOfProduct()
         {
