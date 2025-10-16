@@ -1,5 +1,7 @@
 @WebServer_HostAddress = http://localhost:5001
 
+### Categories
+
 GET {{WebServer_HostAddress}}/api/categories
 Accept: application/json
 
@@ -35,5 +37,12 @@ Content-Type: application/json
   "name":"Updated Name",
   "description": "Updated Description"
 }
+
+###
+
+### Products
+
+GET {{WebServer_HostAddress}}/api/products
+Accept: application/json
 
 ###
