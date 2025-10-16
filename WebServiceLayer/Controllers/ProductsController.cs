@@ -6,6 +6,8 @@ using WebServiceLayer.Models;
 
 namespace WebServiceLayer.Controllers;
 
+[Route("api/products")]
+[ApiController]
 public class ProductsController : ControllerBase
 {
     DataService _dataService = Program.DataService;
@@ -21,5 +23,30 @@ public class ProductsController : ControllerBase
         });
 
         return Ok(products);
+    }
+
+    [HttpGet("{id}")]
+    public IActionResult GetProduct(int id)
+    {
+        var products = _dataService.GetProduct(id);
+
+        if (products == null)
+        {
+            return NotFound();
+        }
+
+        var model = new ProductModel
+        {
+            Id = products.Id,
+            Url = $"/api/products/{products.Id}",
+            Name = products.Name,
+            UnitPrice = products.UnitPrice,
+            CategoryId = products.CategoryId,
+            Category = products.Category,
+            QuantityPerUnit = products.QuantityPerUnit,
+            UnitsInStock = products.UnitsInStock
+        };
+
+        return Ok(model);
     }
 }
