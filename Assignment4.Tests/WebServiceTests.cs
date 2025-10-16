@@ -75,10 +75,6 @@ namespace Assignment4.Tests
             };
             var (category, _) = PostData($"{CategoriesApi}", data);
 
-            Console.WriteLine($"Created category ID: {category["id"]}");
-            Console.WriteLine($"Created category name: {category["name"]}");
-
-
             var update = new
             {
                 Id = category["id"],
@@ -87,9 +83,6 @@ namespace Assignment4.Tests
             };
 
             var statusCode = PutData($"{CategoriesApi}/{category["id"]}", update);
-
-
-            Console.WriteLine($"PUT Status: {statusCode}");
 
             Assert.Equal(HttpStatusCode.OK, statusCode);
 
@@ -142,7 +135,7 @@ namespace Assignment4.Tests
         }
 
         /* /api/products */
-/*
+
         [Fact]
         public void ApiProducts_ValidId_CompleteProduct()
         {
@@ -152,7 +145,7 @@ namespace Assignment4.Tests
             Assert.Equal("Chai", product["name"]);
             Assert.Equal("Beverages", product["category"]["name"]);
         }
-
+/*
         [Fact]
         public void ApiProducts_InvalidId_CompleteProduct()
         {
