@@ -1,5 +1,4 @@
-﻿using Assignment4;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using ProductWithCategory = Assignment4.ProductOperations.ProductWithCategory;
-using ProductWithName = Assignment4.ProductOperations.ProductWithName;
+using ProductWithCategory = DataServiceLayer.ProductOperations.ProductWithCategory;
+using ProductWithName = DataServiceLayer.ProductOperations.ProductWithName;
 
 
-namespace Assignment4
+namespace DataServiceLayer
 {
     public class DataService
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Assignment4
+namespace DataServiceLayer
 {
     public class Program
     {

@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
-namespace Assignment4
+namespace DataServiceLayer
 {
     public class CategoryOperations
     {

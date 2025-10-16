@@ -2,7 +2,7 @@
 using System;
 
 
-namespace Assignment4;
+namespace DataServiceLayer;
 public class NorthwindContext : DbContext
 {
     public DbSet<Category> Categories { get; set; }

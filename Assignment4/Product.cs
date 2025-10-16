@@ -1,11 +1,10 @@
-﻿using Assignment4;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assignment4;
+namespace DataServiceLayer;
 public class Product
 {
     public int Id { get; set; }
