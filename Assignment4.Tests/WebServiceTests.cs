@@ -63,7 +63,7 @@ namespace Assignment4.Tests
 
             DeleteData($"{CategoriesApi}/{category["id"]}");
         }
-/*
+
         [Fact]
         public void ApiCategories_PutWithValidCategory_Ok()
         {
@@ -75,6 +75,10 @@ namespace Assignment4.Tests
             };
             var (category, _) = PostData($"{CategoriesApi}", data);
 
+            Console.WriteLine($"Created category ID: {category["id"]}");
+            Console.WriteLine($"Created category name: {category["name"]}");
+
+
             var update = new
             {
                 Id = category["id"],
@@ -83,6 +87,9 @@ namespace Assignment4.Tests
             };
 
             var statusCode = PutData($"{CategoriesApi}/{category["id"]}", update);
+
+
+            Console.WriteLine($"PUT Status: {statusCode}");
 
             Assert.Equal(HttpStatusCode.OK, statusCode);
 
@@ -93,7 +100,7 @@ namespace Assignment4.Tests
 
             DeleteData($"{CategoriesApi}/{category["id"]}");
         }
-
+/*
         [Fact]
         public void ApiCategories_PutWithInvalidCategory_NotFound()
         {

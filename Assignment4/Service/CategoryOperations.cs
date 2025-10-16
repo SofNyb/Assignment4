@@ -25,10 +25,12 @@ namespace DataServiceLayer.Service
 
             // Calculate next ID
             var maxId = db.Categories.Any() ? db.Categories.Max(c => c.Id) : 0;
+            var newId = maxId + 1;
 
-            var category = new Category { Id = maxId + 1, Name = name, Description = description };
+            var category = new Category { Id = newId, Name = name, Description = description };
             db.Categories.Add(category);
             db.SaveChanges();
+
             return category;
         }
 

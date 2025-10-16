@@ -18,6 +18,7 @@ public class CategoriesController : ControllerBase
     {
         var categories = _dataService.GetCategories().Select(c => new CategoryModel
         {
+            Id = c.Id,
             Url = $"/api/categories/{c.Id}",
             Name = c.Name,
             Description = c.Description
@@ -38,6 +39,7 @@ public class CategoriesController : ControllerBase
 
         var model = new CategoryModel
         {
+            Id = category.Id,
             Url = $"/api/categories/{category.Id}",
             Name = category.Name,
             Description = category.Description
@@ -53,6 +55,7 @@ public class CategoriesController : ControllerBase
 
         var responseModel = new CategoryModel
         {
+            Id = category.Id,
             Url = $"/api/categories/{category.Id}",
             Name = category.Name,
             Description = category.Description
@@ -70,5 +73,28 @@ public class CategoriesController : ControllerBase
         }
 
         return NotFound();
+    }
+
+    [HttpPut("{id}")]
+    public IActionResult UpdateCategory(int id, UpdateCategoryModel model)
+    {
+        var success = _dataService.UpdateCategory(id, model.Name, model.Description);
+
+        if (!success)
+        {
+            return NotFound();
+        }
+
+        var category = _dataService.GetCategory(id);
+
+        var responseModel = new CategoryModel
+        {
+            Id = category.Id,
+            Url = $"/api/categories/{category.Id}",
+            Name = category.Name,
+            Description = category.Description
+        };
+
+        return Ok(responseModel);
     }
 }
