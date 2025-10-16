@@ -1,4 +1,5 @@
 ﻿using DataServiceLayer;
+using DataServiceLayer.Models;
 using Microsoft.AspNetCore.Mvc;
 using WebServiceLayer.Models;
 
@@ -35,14 +36,8 @@ public class CategoriesController : ControllerBase
     [HttpPost]
     public IActionResult CreateCategory(CreateCategoryModel model)
     {
-        var category = new Category
-        {
-            Name = model.Name,
-            Description = model.Description,
-        };
+        var category = _dataService.CreateCategory(model.Name, model.Description);
 
-        _dataService.CreateCategory(category);
-
-        return Created();
+        return Created($"/api/categories/{category.Id}", category);
     }
 }

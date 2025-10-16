@@ -1,7 +1,8 @@
 using System;
 using System.Linq;
 using Xunit;
-using Assignment4;
+using DataServiceLayer;
+using DataServiceLayer.Models;
 
 namespace Assignment4.Tests
 {

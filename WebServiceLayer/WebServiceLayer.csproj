@@ -8,7 +8,6 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Assignment4\DataServiceLayer.csproj" />
-		<ProjectReference Include="..\DataServiceLayer\DataServiceLayer.csproj" />
 	</ItemGroup>
 
 </Project>
