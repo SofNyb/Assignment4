@@ -31,7 +31,7 @@ namespace Assignment4.Tests
             Assert.Equal("Beverages", data.First()["name"]);
             Assert.Equal("Seafood", data.Last()["name"]);
         }
-/*
+
         [Fact]
         public void ApiCategories_GetWithValidCategoryId_OkAndCategory()
         {
@@ -63,7 +63,7 @@ namespace Assignment4.Tests
 
             DeleteData($"{CategoriesApi}/{category["id"]}");
         }
-
+/*
         [Fact]
         public void ApiCategories_PutWithValidCategory_Ok()
         {
