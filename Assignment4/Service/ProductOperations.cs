@@ -20,7 +20,11 @@ namespace DataServiceLayer.Service
         {
             public string ProductName { get; set; }
         }
-
+        public List<Product> GetProducts()
+        {
+            using var db = new NorthwindContext();
+            return db.Products.ToList();
+        }
         public Product GetProduct(int id)
         {
             using var db = new NorthwindContext();

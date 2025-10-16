@@ -47,6 +47,11 @@ namespace DataServiceLayer
         /* Products */
         private readonly ProductOperations _productOperations = new ProductOperations();
 
+        public List<Product> GetProducts()
+        {
+            return _productOperations.GetProducts();
+        }
+
         public Product GetProduct(int id)
         {
             return _productOperations.GetProduct(id);
