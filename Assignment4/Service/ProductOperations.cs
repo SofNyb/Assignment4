@@ -53,6 +53,7 @@ namespace DataServiceLayer.Service
         {
             using var db = new NorthwindContext();
             var products = db.Products
+                .Include(p => p.Category)
                 .Where(p => EF.Functions.ILike(p.Name, $"%{name}%"))
                 .AsNoTracking()
                 .ToList();

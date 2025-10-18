@@ -57,9 +57,25 @@ public class ProductsController : ControllerBase
 
         if (products == null || !products.Any())
         {
-            return NotFound();
+            return NotFound(new List<object>());
         }
 
         return Ok(products);
+    }
+
+    [HttpGet("name/{search}")]
+    public IActionResult GetProductByName(string search)
+    {
+        var products = _dataService.GetProductByName(search);
+        if (products == null || !products.Any())
+        {
+            return NotFound(new List<object>());
+        }
+        var result = products.Select(p => new
+        {
+            productName = p.ProductName,
+        });
+
+        return Ok(result);
     }
 }
